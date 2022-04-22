@@ -24,10 +24,10 @@ function playerPlay() {
 function checkWinner() {
     count ++
     if(count === 5){
-        if(playerScore == 3){
+        if(playerScore > computerScore){
         alert("Game over, you win");
         }
-        else if (computerScore == 3){
+        else if (computerScore > playerScore){
         alert("Na wa oooh");
         }
         else{
@@ -43,6 +43,7 @@ function playRound() {
 
   // check winner
   checkWinner();
+
   //Check game conditions
   if (playerSelection === "rock" && computerSelection === "paper") {
     playerScore++;
