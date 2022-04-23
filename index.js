@@ -54,25 +54,50 @@ function playRound() {
   //Check game conditions
   if (playerSelection === "rock" && computerSelection === "paper") {
     playerScore++;
+    display();
     return console.log("Player wins");
   } else if (playerSelection === computerSelection) {
+    display();
     return console.log("It is a draw! play again");
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     computerScore++;
+    display();
     return console.log("Computer wins");
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     playerScore++;
+    display();
     return console.log("Player wins");
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     computerScore++;
+    display();
     return console.log("Computer wins");
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     playerScore++;
+    display();
     return console.log("Player wins");
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     computerScore++;
+    display();
     return console.log("Computer wins");
   } else {
     return playerPlay();
+  }
+}
+
+function display(){
+  if (playerSelection === "rock" && computerSelection === "paper") {
+    displayDiv.textContent = `Player wins. Player score is ${playerScore} and Computer score is ${computerScore}`
+  } else if (playerSelection === computerSelection) {
+    displayDiv.textContent = `It is a draw. Player score is ${playerScore} and Computer score is ${computerScore}`
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+    displayDiv.textContent = `Player wins. Player score is ${playerScore} and Computer score is ${computerScore}`
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    displayDiv.textContent = `Player wins. Player score is ${playerScore} and Computer score is ${computerScore}`
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    displayDiv.textContent = `Computer wins. Player score is ${playerScore} and Computer score is ${computerScore}`
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    displayDiv.textContent = `Computer wins. Player score is ${playerScore} and Computer score is ${computerScore}`
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    displayDiv.textContent = `Computer wins. Player score is ${playerScore} and Computer score is ${computerScore}`
   }
 }
