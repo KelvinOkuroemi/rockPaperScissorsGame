@@ -9,10 +9,6 @@ let button = document.getElementsByClassName("btn");
 let displayDiv = document.getElementById("display-div");
 let winDiv = document.getElementById("winning-div");
 
-let rockChoice = document.getElementById("#rock");
-let paperChoice = document.getElementById("#paper");
-let scissorChoice = document.getElementById("#scissors");
-
 
 // Variable declarations
 let playerSelection;
