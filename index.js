@@ -1,10 +1,19 @@
 // Event listeners
+let input; // Allows player make a choice with buttons
 let button = document.getElementsByClassName("btn");
     for (let i = 0; i < button.length; i++) {
+        input = button[i].textContent
         button[i].addEventListener("click", playRound);
     }
 
 let displayDiv = document.getElementById("display-div");
+let winDiv = document.getElementById("winning-div");
+
+let rockChoice = document.getElementById("#rock");
+let paperChoice = document.getElementById("#paper");
+let scissorChoice = document.getElementById("#scissors");
+
+
 // Variable declarations
 let playerSelection;
 let computerSelection;
@@ -21,35 +30,30 @@ function computerPlay() {
   return myArray[~~(Math.random() * myArray.length)];
 }
 
-//Allow the make an input
-function playerPlay() {
-  let input = prompt("rock,paper or scissors").toLowerCase();
-  return input;
-}
 
 // Check if the game is over
-// function checkWinner() {
-//     count ++
-//     if(count === 5){
-//         if(playerScore > computerScore){
-//         alert("Game over, you win");
-//         }
-//         else if (computerScore > playerScore){
-//         alert("Na wa oooh");
-//         }
-//         else{
-//         alert("It's a general draw")
-//         }
-//     }
-// }
+function checkWinner() {
+    count ++
+    if(count === 5){
+        if(playerScore > computerScore){
+        winDiv.textContent = "Game over, you win , Please refresh your page";
+        }
+        else if (computerScore > playerScore){
+        winDiv.textContent = "Na wa oooh, Computer wins, Please refresh your page";
+        }
+        else{
+        winDiv.textContent = "It's a general draw, Please refresh your page";
+        }
+    }
+}
 
 // Plays a round
 function playRound() {
-  playerSelection = playerPlay();
+  playerSelection = input//playerPlay();
   computerSelection = computerPlay();
 
   // check winner
-  //checkWinner();
+  checkWinner();
 
   //Check game conditions
   if (playerSelection === "rock" && computerSelection === "paper") {
@@ -84,6 +88,7 @@ function playRound() {
   }
 }
 
+// Displays the result based on choice
 function display(){
   if (playerSelection === "rock" && computerSelection === "paper") {
     displayDiv.textContent = `Player wins. Player score is ${playerScore} and Computer score is ${computerScore}`
